@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>終極密碼</title>
+</head>
+<body style="background-color:#FFED97">
+<h1 style="font-family:DFKai-sb"><a id="first"><center>終極密碼</a></h1>
+<form>
+請輸入數字 (1~100): <input type="text" id="num">
+</form>
+<p id="check"></p>
+<button type="button" onclick="display()">確認</button>
+<br>
+<div id="a"style="display:none"><center><img src= "correct.jpg" width="768" /></div>
+<div id="a1"style="display:none"><center><img src= "num big.jpg" width="768" /></div>
+<div id="a2"style="display:none"><center><img src= "num small.jpg" width="768" /></div>
+<script>
+var up = 100;
+var low = 1;
+var answer = Math.floor(Math.random() * 100)+1;
+function display(){
+	let num = document.getElementById("num").value;
+	if (num > answer) {
+        display1();
+        up = num;
+    }
+    if (num < answer) {
+        display2();
+        low = num;
+    }
+    if (num == answer) {
+    	display3();
+        low=up=num; 
+    }
+    document.getElementById("check").innerHTML = low + "~" + up  ;
+}
+function display1(){
+let x = document.getElementById("a1");
+x.style.display = "block";
+let y = document.getElementById("a2");
+y.style.display = "none";
+}
+function display2(){
+let x = document.getElementById("a2");
+x.style.display = "block";
+let y = document.getElementById("a1");
+y.style.display = "none";
+}
+function display3(){
+let x = document.getElementById("a2");
+x.style.display = "none";
+let y = document.getElementById("a1");
+y.style.display = "none";
+let z = document.getElementById("a");
+z.style.display = "block";
+}
+
+</script>	
+
+
+
+
+</body>
+</html>
